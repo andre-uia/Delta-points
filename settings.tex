@@ -1,0 +1,142 @@
+\usepackage[utf8]{inputenc}
+%\usepackage[norsk]{babel}                  % Oversetter overskrifter/abstract osv til norsk.
+\usepackage[T1]{fontenc}
+\usepackage[bitstream-charter]{mathdesign}	% Velger Charter-fonten for både tekst og matematikk.
+\usepackage{centernot}                      % Gir mulighet for ikke-implikasjoner
+\usepackage[toc,page]{appendix}             % Gir mulighet for Appendix
+\usepackage{graphicx}
+\usepackage{scalerel}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	pdftitle={Oppslagstavle},
+    pdfauthor={AA}
+}
+
+\usepackage{enumitem}						% Gjør at vi kan finjustere lister
+\setlist{nosep}								% Fjerner overflødig mellomrom mellom liste-items.
+\usepackage{amsmath}
+% \usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[dvipsnames, svgnames]{xcolor}	% Gjør at vi kan bruke farger
+\usepackage{tcolorbox}						% Gjør at vi kan bruke fancy bokser
+\tcbuselibrary{breakable}					% Gjør at boksene kan kan dekke flere sider
+\usepackage[useregional]{datetime2}			% Gjør at vi kan standardisere datoformatet
+\usepackage{colonequals}
+% Her definerer vi masse kommandoer:
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\msn}{\mathbb{N}}
+\newcommand{\msz}{\mathbb{Z}}
+\newcommand{\msq}{\mathbb{Q}}
+\newcommand{\msr}{\mathbb{R}}
+\newcommand{\msc}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dual}{^*}
+\newcommand{\notimplies}{\centernot\implies}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =} % Denne gir muligheten til å skrive := pent
+\let\savestar\star
+\renewcommand\star{{\scalerel*{\bigstar}{\savestar}}}
+
+
+% Her definerer vi masse omgivelser
+\newtheorem{thm}{Theorem}%[section]      % Inkluder section hvis du har sections
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{notation}[thm]{Notation}
+\newtheorem{example}[thm]{Example}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{quest}{Question}
+
+\theoremstyle{remark}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{rem}[thm]{Remark}
+
+% Her definerer vi bluebox-miljøet.
+\newenvironment{bluebox}[1]
+{
+	\begin{tcolorbox}
+    [
+%     	colback=GhostWhite
+    	colback=SkyBlue!10!White,
+        colbacktitle=SkyBlue,
+        colframe=Black,
+        coltitle=Black,
+        fonttitle=\bfseries,
+        top=0pt,
+        boxrule=1pt,
+        sharp corners,
+        title=#1,
+        subtitle style={},
+        breakable
+    ]
+    \setlength{\parskip}{\baselineskip}
+}{
+	\end{tcolorbox}
+}
+
+\newenvironment{yellowbox}[1]
+{
+	\begin{tcolorbox}
+    [
+    	colback=Yellow!10!White,
+        colbacktitle=Yellow,
+        colframe=Black,
+        coltitle=Black,
+        fonttitle=\bfseries,
+        top=0pt,
+        boxrule=1pt,
+        sharp corners,
+        title=#1,
+        subtitle style={},
+        breakable
+    ]
+    \setlength{\parskip}{\baselineskip}
+}{
+	\end{tcolorbox}
+}
+
+\newenvironment{greenbox}[1]
+{
+	\begin{tcolorbox}
+    [
+    	colback=LimeGreen!10!White,
+        colbacktitle=LimeGreen,
+        colframe=Black,
+        coltitle=Black,
+        fonttitle=\bfseries,
+        top=0pt,
+        boxrule=1pt,
+        sharp corners,
+        title=#1,
+        subtitle style={},
+        breakable
+    ]
+    \setlength{\parskip}{\baselineskip}
+}{
+	\end{tcolorbox}
+}
+
+% Her definerer vi noskip-miljøet:
+\newenvironment{noskip}
+{
+	\setlength{\parskip}{0pt}
+}{}
+
+% Disse kommandoene bestemmer lengdene som blir brukt til avsnitt
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}

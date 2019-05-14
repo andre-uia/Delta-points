@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Title}
+\author{André Martiny}
+\date{}
+\usepackage{lineno}
+\linenumbers
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\input{settings.tex}
+\begin{document}
+
+\maketitle
+\begin{defn}
+Let $X$ be a Banach space. For $x\in S_X$ and $\epsilon>0$ we define $\Delta_\epsilon(x) = \{y\in B_X \,:\, \|x-y\| \geq 2-\epsilon\}$.
+\begin{enumerate}[label={(\roman*)}]
+    \item $x$ is a $\Delta$-point if $x\in \overline{conv}{\Delta_\epsilon(x)}$ for all $\epsilon>0$. \\
+    \item $x$ is Daugavet-point if $B_X =  \overline{conv}{\Delta_\epsilon(x)}$ for all $\epsilon>0$. 
+\end{enumerate}
+\end{defn}
+Equivalently we can define $\Delta$-points and Daugavet-points in tihs manner
+\begin{defn}
+Let $X$ be a Banach space. For $x\in S_X$ and $\epsilon>0$ we define $\Delta_\epsilon(x) = \{y\in B_X \,:\, \|x-y\| \geq 2-\epsilon\}$.
+\begin{enumerate}[label={(\roman*)}]
+    \item $x$ is a $\Delta$-point if for all $\epsilon>0$ and for all $x^*\in S_{X^*}$ with $x\in S(x^*, \delta)$ there exists $y\in S(x^*, \delta)$ with $\|x-y\|\geq 2-\epsilon$\\
+    \item $x$ is Daugavet-point if for all $\epsilon>0$, for all $z\in S_X$ and for all $x^*\in S_{X^*}$ with $x\in S(x^*, \delta)$ there exists $y\in S(x^*, \delta)$ with $\|z-y\|\geq 2-\epsilon$
+\end{enumerate}
+\end{defn}
+\begin{defn}
+
+$\Delta_X = \{x \in S_X \,:\, x \text{ is a } \Delta-point \}$.
+
+If $\Delta_X = S_X$ : $X$ has diametral LD2P.
+
+$D_X = \{x \in D_C \,:\, x \text{ is a } D-point\}$.
+
+If $D_x = S_X$ : $X$ has the Daugavet property.
+\end{defn}
+
+\textbf{Question:}
+
+What spaces satisfies $\Delta = \emptyset$? Polyhedral? M-embedded? Lorentz?
+\textbf{EX:}
+
+$c_0, l_p$ and many polyhedral spaces, finite dimensional spaces, uniformly non-square spaces, 
+
+
+
+%%%             C[0,1]              %%%
+
+\begin{lem}
+$\Delta = S_{C[0,1]}$.
+\end{lem}
+\begin{proof}
+Idea:  For any $x\in S_{C[0,1]}$ and any $\epsilon >0$. If we take an arbitrary slice $S( x^*, \delta)$ containing $x$, then we can find an interval $(t_0-\epsilon_0, t_0\epsilon)$ ($t_0$ is an endpoint choose an intervall containing $t_0$ to the right or left) with $x(t_0) = 1$ (or -1) and $x(t)\geq 1-\delta$ for all $t\in (t_0-\epsilon_0, t_0\epsilon)$, we now only need to find some closed interval $A$ contained in $(t_0-\epsilon_0, t_0\epsilon)$ with arbitrary small measure (the measure related to $x^*$). Then we let $y$ be the modified version of $x$ such that at the left endpoint of $A$, $x$ is replaced by the line down to $-1$ and the line up to the endpoint of $A$ again.  
+\end{proof}
+
+%%%               C_0               %%%
+
+\begin{lem}
+$\Delta_{c_0} = \emptyset$.
+\end{lem}
+
+\begin{proof}
+Take any $x\in S_{c_0}$. We need only find some slice where $\Delta$-point property is not satisfied. Let $\epsilon_0>0$ and let $F_{\epsilon_0} \colonequals \{n\in \N \,:\, |x_n|> 1-\epsilon\}$ and let $M_0$ be the cardinality of $F_{\epsilon_0}$. Notice that if $0<\epsilon<\epsilon_0$ is chosen. Then the cardinality $M$ of $F_\epsilon$ does not increase. We can therefore choose $\epsilon>0$ such that 
+\[ 
+\epsilon < \frac{1-\epsilon}{M} \implies 1-\epsilon > 1- \frac{1-\epsilon}{M}.
+\]
+Define $(a_k)$ such that $a_k = \frac{\sign x_k}{M}$ if $k\in F_\epsilon$ and $a_k=0$ otherwise. Then $a \in S_{c_o^*}$ with $a(x)> 1-\epsilon$ and $a(x)- \frac{|x_k|}{M} < 1 - \frac{1-\epsilon}{M}$, for $k\in F_\epsilon$. This means that $x\in S(a, \frac{1-\epsilon}{M})$, but there does not exist $y\in S(a, \frac{1-\epsilon}{M})$ with $\|x-y\|>2-\epsilon$ as this would imply that $\sign y_k = - \sign x_k$ with $|y_k| > 1-\epsilon$ for some $k\in F_\epsilon$. 
+\end{proof}
+
+
+
+%%%                 c               %%%%
+
+
+\begin{lem}
+$x\in S_c$ with $lim x_n = \pm 1$ implies that $x\in \Delta_c$. $x\in \Delta_c \iff \lim x_n \rightarrow \pm 1$. 
+\end{lem}
+
+
+\begin{proof}
+The techniques from the previous lemma show that if $\lim x_n \neq \pm 1$ for some $x$ then $x\notin \Delta$. The proof that $x$ with $lim x_n \rightarrow \pm 1$ is similar to the proof that $c_0$ has LD2P.
+\end{proof}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
